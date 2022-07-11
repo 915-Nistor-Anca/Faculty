@@ -1,2 +1,2 @@
 # Faculty
-Some homeworks.
+Some projects.
