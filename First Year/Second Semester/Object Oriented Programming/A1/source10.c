@@ -23,7 +23,7 @@ void goldbach_conjecture(int n, int *n1, int *n2) {
 }
 
 void menu() {
-    printf("1.Decompose a given even natural number, greater than 2, as a sum of two prime numbers (Goldbach’s conjecture).\n");
+    printf("1.Decompose a given even natural number, greater than 2, as a sum of two prime numbers (Goldbachâ€™s conjecture).\n");
     printf("2.Given a vector of numbers, find the longest contiguous subsequence such that any consecutive elements have at least 2 distinct digits in common.\n");
 }
 
