@@ -2,6 +2,13 @@
 
 
 bool is_prime(int n) {
+    /*
+    * This function checks whether the given number a is prime.
+    * A number is prime if it has no other divisors except itself and the number 1.
+    * Parameter: a - integer
+    * Return: true, if a is prime and false, if not
+    */
+
     if (n <= 1) {
         return false;
     }
@@ -14,6 +21,10 @@ bool is_prime(int n) {
 }
 
 void goldbach_conjecture(int n, int *n1, int *n2) {
+    /*
+    * This function receives an even number n which is greater than 2 and finds 
+    * two prime numbers n1, n2 with the condition n1 + n2 = n.
+    */
     for (int i = 2; i <= n / 2; i++) {
         if (is_prime(i) && is_prime(n - i)) {
             *n1 = i; *n2 = n - i;
@@ -28,6 +39,9 @@ void menu() {
 }
 
 int frequency(int n, int d) {
+    /*
+    This function computes the frequency of a digit in a given number.
+    Parameters: n - the given number; d - the digit*/
     int k = 0;
     while (n) {
         if (n % 10 == d) k++;
@@ -37,6 +51,9 @@ int frequency(int n, int d) {
 }
 
 int digits_in_common(int a, int b) {
+    /*
+    * This function receives two numbers and calculates how many different digits they have in common.
+    */
     int f[10], k = 0;
     for (int i = 0; i < 10; i++) f[i] = 0;
     while (a) {
@@ -50,6 +67,11 @@ int digits_in_common(int a, int b) {
 }
 
 void longest_sequence(int x[], int n, int* start_poz, int* length) {
+    /*
+    * This function computes the starting position and the length of 
+     the longest contiguous subsequence 
+    such that any consecutive elements have at least 2 distinct digits in common.
+    */
     *length = 0;
     for (int i = 0; i < n - 1; i++) {
         int j = i + 1;
@@ -66,6 +88,13 @@ void longest_sequence(int x[], int n, int* start_poz, int* length) {
 
 void read_numbers(int x[], int* n)
 {
+    /*
+    * This function reads a number and then the same number of integers.
+    * Parameters:
+    * x - a vector of integers
+    * n - integer
+    */
+
     scanf("%d", &*n);
     for (int i = 0; i < *n; i++)
     {
@@ -75,6 +104,12 @@ void read_numbers(int x[], int* n)
 
 void print_numbers(int x[100], int n)
 {
+    /*
+    * This function prints the n number which are saved in the vector x.
+    * Parameters:
+    * x - vector of integers
+    * n - integer
+    */
     for (int i = 0; i < n; i++)
         printf("%d ", x[i]);
 }
@@ -109,7 +144,7 @@ int main()
             longest_sequence(x, n, &start_poz, &length);
             if (start_poz == -1) printf("There is no such sequence in the list. \n");
             else {
-                printf("The numbers are: ");
+                printf("The sequence is: ");
                 while (length > 0)
                 {
                     printf("%d ", x[start_poz]);
