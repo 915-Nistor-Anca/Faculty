@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 
-bool is_prime(int n) {
+int is_prime(int n) {
     /*
     * This function checks whether the given number a is prime.
     * A number is prime if it has no other divisors except itself and the number 1.
@@ -10,14 +10,14 @@ bool is_prime(int n) {
     */
 
     if (n <= 1) {
-        return false;
+        return 0;
     }
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) {
-            return false;
+            return 0;
         }
     }
-    return true;
+    return 1;
 }
 
 void goldbach_conjecture(int n, int *n1, int *n2) {
@@ -118,7 +118,7 @@ int main()
 {
     menu();
     
-    while (true) {
+    while (1) {
         printf("Enter an option (1/2):");
         int choice;
         scanf("%d", &choice);
