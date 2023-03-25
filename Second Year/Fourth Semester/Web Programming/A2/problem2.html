@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Problem 2</title>
+	<style>
+.mainimage {
+    position: fixed;
+    top: 50px;
+    left: 100px;
+    width: 400px;
+}
+
+.mainimage img {
+    height: 300px;
+    width: auto;
+    padding: 2px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-direction: row;
+    margin-top: 450px;
+}
+
+.image-box {
+    position: relative;
+    width: 10%;
+    padding-bottom: 15%;
+}
+
+.image {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+}
+
+.thumbnail span {
+    position: relative;
+    visibility: hidden;
+}
+
+.thumbnail span img {
+    height: 400px;
+    width: auto;
+    padding: 2px;
+}
+
+.thumbnail:hover span {
+    position: fixed;
+    visibility: visible;
+    top: 10px;
+    left: 10px;
+}
+
+	</style>
+</head>
+
+<body>
+    <span class="mainimage">
+        <img src="sheba.jpg" alt="img1">
+    </span>
+
+    <div class="image-gallery">
+
+        <div class="image-box">
+            <div class="image">
+                <a class="thumbnail" href="#">
+                    <img src="cat.jpg" alt="img2">
+                    <span>
+                        <img src="cat.jpg" alt="img2"/>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <div class="image-box">
+            <div class="image">
+                <a class="thumbnail" href="#">
+                    <img src="mainecoon.jpg" alt="img3">
+                    <span class="span1">
+                        <img src="mainecoon.jpg" alt="img3"/>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
