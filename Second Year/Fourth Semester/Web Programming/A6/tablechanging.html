@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Table</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        //Add the buttons
+        $(document).ready(function() {
+
+        $("tbody tr").each(function() {
+        var addBtn = $("<button>").text("Add Row");
+        var deleteBtn = $("<button>").text("Delete Row");
+        $(this).append($("<td>").append(addBtn));
+        $(this).prepend($("<td>").append(deleteBtn));
+        });
+        });
+
+
+        //Delete a new row
+        $(document).on("click", "button:contains('Delete Row')", function() {
+        var row = $(this).closest("tr");
+        var rowNum = row.find("td:first").text();
+        row.prevAll().each(function() {
+        var prevRowNum = $(this).find("td:first").text();
+        if (!isNaN(prevRowNum)) {
+        $(this).find("td:first").text(Number(prevRowNum) - 1);
+        }
+        });
+        row.remove();
+        });
+
+
+
+        //Add a new row
+        $(document).on("click", "button:contains('Add Row')", function() {
+        var newRow = $("<tr>");
+        var numCols = $(this).closest("tr").find("td").length - 2; // minus 2 for Add and Delete buttons
+        for (var i = 0; i < numCols; i++) {
+          newRow.append($("<td>").addClass("editable").attr("contenteditable", "true"));
+         }
+        var addBtn = $("<button>").text("Add Row");
+        var deleteBtn = $("<button>").text("Delete Row");
+        newRow.append($("<td>").append(addBtn));
+        newRow.prepend($("<td>").append(deleteBtn));
+        $(this).closest("tr").after(newRow);
+      });
+
+       
+        //Make rows read-only if all cells are filled
+        $(document).on("blur", ".editable", function() {
+            var allCellsFilled = true;
+            $(this).closest("tr").find(".editable").each(function() {
+                if ($(this).text().trim() === "") {
+                    allCellsFilled = false;
+                    return false;
+                }
+            });
+            if (allCellsFilled) {
+                $(this).closest("tr").find("td").each(function() {
+                    $(this).removeAttr("contenteditable").removeClass("editable");
+                });
+            }
+        });
+
+  
+
+
+
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #b492c6;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #b492c6;
+            color: white;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Delete</th>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+                <th>Header 4</th>
+                <th>Header 5</th>
+                <th>Add</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Col 1</td>
+                <td>Row 1, Col 2</td>
+                <td>Row 1, Col 3</td>
+                <td>Row 1, Col 4</td>
+                <td>Row 1, Col 5</td>
+            </tr>
+            <tr>
+                <td>Row 2, Col 1</td>
+                <td>Row 2, Col 2</td>
+                <td>Row 2, Col 3</td>
+                <td>Row 2, Col 4</td>
+                <td>Row 2, Col 5</td>
+            </tr>
+            <tr>
+                <td>Row 3, Col 1</td>
+                <td>Row 3, Col 2</td>
+                <td>Row 3, Col 3</td>
+                <td>Row 3, Col 4</td>
+                <td>Row 3, Col 5</td>
+            </tr>
+            <tr>
+                <td>Row 4, Col 1</td>
+                <td>Row 4, Col 2</td>
+                <td>Row 4, Col 3</td>
+                <td>Row 4, Col 4</td>
+                <td>Row 4, Col 5</td>
+            </tr>
+            <tr>
+                <td>Row 5, Col 1</td>
+                <td>Row 5, Col 2</td>
+                <td>Row 5, Col 3</td>
+                <td>Row 5, Col 4</td>
+                <td>Row 5, Col 5</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+        // Do something after page is loaded
+        });
+    </script>
+</body>
+</html>
