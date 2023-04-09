@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,6 +56,7 @@ namespace Lab1_SGBD
 
         private void parentTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
         }
 
         private void animalDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -89,7 +90,17 @@ namespace Lab1_SGBD
                 connection.Close();
 
 
-                //clearTextBoxes();
+                Form1_Load(sender, e);
+                clearTextBoxes();
+                //DataSet dataSet = new DataSet();
+                //dataAdapter.SelectCommand = new SqlCommand("select * from Animal where specieid = @id", connection);
+                //int id = int.Parse(animalDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                //dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+                //dataAdapter.Fill(dataSet);
+
+
+                
             }
             catch (Exception ex)
             {
@@ -112,6 +123,9 @@ namespace Lab1_SGBD
                 dataAdapter.DeleteCommand.ExecuteNonQuery();
                 MessageBox.Show("Deleted succesfully from the database!");
                 connection.Close();
+
+                Form1_Load(sender, e);
+                clearTextBoxes();
             }
             catch (Exception ex)
             {
@@ -140,6 +154,9 @@ namespace Lab1_SGBD
                 dataAdapter.UpdateCommand.ExecuteNonQuery();
                 MessageBox.Show("Updated succesfully to the database!");
                 connection.Close();
+
+                Form1_Load(sender, e);
+                clearTextBoxes();
             }
             catch (Exception ex)
             {
