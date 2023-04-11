@@ -25,49 +25,23 @@ namespace Lab1_SGBD
         {
 
             InitializeComponent();
-        }
-
-        private void animalBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.animalBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.animalShelterDataSet);
+            dataAdapter.SelectCommand = new SqlCommand("select * from Specie", connection);
+            dataSet2.Clear();
+            dataAdapter.Fill(dataSet2);
+            specieDataGridView.DataSource = dataSet2.Tables[0];
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'animalShelterDataSet.Specie' table. You can move, or remove it, as needed.
-            this.specieTableAdapter.Fill(this.animalShelterDataSet.Specie);
-            // TODO: This line of code loads data into the 'animalShelterDataSet.Animal' table. You can move, or remove it, as needed.
-            this.animalTableAdapter.Fill(this.animalShelterDataSet.Animal);
-
-        }
 
         private void clearTextBoxes()
         {
-            animalidTextBox.Clear();
             animalnameTextBox.Clear();
             animalweightTextBox.Clear();
             favouritetoyTextBox.Clear();
             genderTextBox.Clear();
-            specieidTextBox.Clear();
         }
 
-        private void parentTable_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        private void animalDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void specieDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -82,7 +56,8 @@ namespace Lab1_SGBD
                 dataAdapter.InsertCommand.Parameters.Add("@aw", SqlDbType.Float).Value = float.Parse(animalweightTextBox.Text);
                 dataAdapter.InsertCommand.Parameters.Add("@g", SqlDbType.VarChar).Value = genderTextBox.Text;
                 dataAdapter.InsertCommand.Parameters.Add("@ft", SqlDbType.VarChar).Value = favouritetoyTextBox.Text;
-                dataAdapter.InsertCommand.Parameters.Add("@si", SqlDbType.Int).Value = Int32.Parse(specieidTextBox.Text);
+
+                dataAdapter.InsertCommand.Parameters.Add("@si", SqlDbType.Int).Value = int.Parse(specieDataGridView.SelectedRows[0].Cells[0].Value.ToString());
 
                 connection.Open();
                 dataAdapter.InsertCommand.ExecuteNonQuery();
@@ -90,14 +65,15 @@ namespace Lab1_SGBD
                 connection.Close();
 
 
-                Form1_Load(sender, e);
-                clearTextBoxes();
-                //DataSet dataSet = new DataSet();
-                //dataAdapter.SelectCommand = new SqlCommand("select * from Animal where specieid = @id", connection);
-                //int id = int.Parse(animalDataGridView.SelectedRows[0].Cells[0].Value.ToString());
-                //dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
-                //dataAdapter.Fill(dataSet);
+                dataAdapter.SelectCommand = new SqlCommand("select * from Animal where specieid = @id", connection);
+                int id = int.Parse(specieDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                dataSet1.Clear();
+                dataAdapter.Fill(dataSet1);
+                animalDataGridView.DataSource = dataSet1.Tables[0];
+                clearTextBoxes();
+              
 
 
                 
@@ -124,7 +100,13 @@ namespace Lab1_SGBD
                 MessageBox.Show("Deleted succesfully from the database!");
                 connection.Close();
 
-                Form1_Load(sender, e);
+
+                dataAdapter.SelectCommand = new SqlCommand("select * from Animal where specieid = @id", connection);
+                int id2 = int.Parse(specieDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id2;
+                dataSet1.Clear();
+                dataAdapter.Fill(dataSet1);
+                animalDataGridView.DataSource = dataSet1.Tables[0];
                 clearTextBoxes();
             }
             catch (Exception ex)
@@ -145,7 +127,7 @@ namespace Lab1_SGBD
                 dataAdapter.UpdateCommand.Parameters.Add("@aw", SqlDbType.Float).Value = float.Parse(animalweightTextBox.Text);
                 dataAdapter.UpdateCommand.Parameters.Add("@g", SqlDbType.VarChar).Value = genderTextBox.Text;
                 dataAdapter.UpdateCommand.Parameters.Add("@ft", SqlDbType.VarChar).Value = favouritetoyTextBox.Text;
-                dataAdapter.UpdateCommand.Parameters.Add("@si", SqlDbType.Int).Value = Int32.Parse(specieidTextBox.Text);
+                dataAdapter.UpdateCommand.Parameters.Add("@si", SqlDbType.Int).Value = int.Parse(specieDataGridView.SelectedRows[0].Cells[0].Value.ToString());
 
                 int id = int.Parse(animalDataGridView.SelectedRows[0].Cells[0].Value.ToString());
                 dataAdapter.UpdateCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
@@ -155,7 +137,13 @@ namespace Lab1_SGBD
                 MessageBox.Show("Updated succesfully to the database!");
                 connection.Close();
 
-                Form1_Load(sender, e);
+
+                dataAdapter.SelectCommand = new SqlCommand("select * from Animal where specieid = @id", connection);
+                int id2 = int.Parse(specieDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id2;
+                dataSet1.Clear();
+                dataAdapter.Fill(dataSet1);
+                animalDataGridView.DataSource = dataSet1.Tables[0];
                 clearTextBoxes();
             }
             catch (Exception ex)
@@ -165,6 +153,42 @@ namespace Lab1_SGBD
             }
         }
 
+        private void showAnimals(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                dataAdapter.SelectCommand = new SqlCommand("select * from Animal where specieid = @id", connection);
+                int id = int.Parse(specieDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                dataSet1.Clear();
+                dataAdapter.Fill(dataSet1);
+                animalDataGridView.DataSource = dataSet1.Tables[0];
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                connection.Close();
+            }
+        }
+
+        private void animalDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            clearTextBoxes();
+            string name = animalDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+            string date = animalDataGridView.SelectedRows[0].Cells[2].Value.ToString();
+            string weight = animalDataGridView.SelectedRows[0].Cells[3].Value.ToString();
+            string gender = animalDataGridView.SelectedRows[0].Cells[4].Value.ToString();
+            string favourite_toy = animalDataGridView.SelectedRows[0].Cells[5].Value.ToString();
+
+            animalnameTextBox.AppendText(name);
+            animaldateofbirthDateTimePicker.Text = date;
+            animalweightTextBox.AppendText(weight);
+            genderTextBox.AppendText(gender);
+            favouritetoyTextBox.AppendText(favourite_toy);
+
+
+        }
 
         private void animalnameTextBox_TextChanged(object sender, EventArgs e)
         {
