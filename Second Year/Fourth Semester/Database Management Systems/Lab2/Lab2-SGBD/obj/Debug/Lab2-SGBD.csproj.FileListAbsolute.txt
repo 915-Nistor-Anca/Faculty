@@ -1,0 +1,11 @@
+D:\Lab2-SGBD\Lab2-SGBD\bin\Debug\Lab2-SGBD.exe.config
+D:\Lab2-SGBD\Lab2-SGBD\bin\Debug\Lab2-SGBD.exe
+D:\Lab2-SGBD\Lab2-SGBD\bin\Debug\Lab2-SGBD.pdb
+D:\Lab2-SGBD\Lab2-SGBD\obj\Debug\Lab2-SGBD.csproj.AssemblyReference.cache
+D:\Lab2-SGBD\Lab2-SGBD\obj\Debug\Lab2-SGBD.csproj.SuggestedBindingRedirects.cache
+D:\Lab2-SGBD\Lab2-SGBD\obj\Debug\Lab2_SGBD.Form1.resources
+D:\Lab2-SGBD\Lab2-SGBD\obj\Debug\Lab2_SGBD.Properties.Resources.resources
+D:\Lab2-SGBD\Lab2-SGBD\obj\Debug\Lab2-SGBD.csproj.GenerateResource.cache
+D:\Lab2-SGBD\Lab2-SGBD\obj\Debug\Lab2-SGBD.csproj.CoreCompileInputs.cache
+D:\Lab2-SGBD\Lab2-SGBD\obj\Debug\Lab2-SGBD.exe
+D:\Lab2-SGBD\Lab2-SGBD\obj\Debug\Lab2-SGBD.pdb
