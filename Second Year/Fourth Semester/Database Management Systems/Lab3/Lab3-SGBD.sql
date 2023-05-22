@@ -278,3 +278,23 @@ commit tran
 select * from Pet
 select * from Owner
 select * from Ownership
+
+
+
+SET TRANSACTION ISOLATION LEVEL SNAPSHOT
+BEGIN TRAN
+Select * from Pet where petid=3
+Waitfor delay '00:00:10'
+select * from Pet where petid=4
+Update Pet set petname = 'Beni' where petid=3
+COMMIT TRAN
+
+
+ALTER DATABASE Pet SET ALLOW_SNAPSHOT_ISOLATION ON
+waitfor delay '00:00:10'
+BEGIN TRAN
+UPDATE Pet SET petname = 'Tomi' WHERE petid=3
+waitfor delay '00:00:10'
+COMMIT TRAN
+
+ALTER DATABASE Pet SET ALLOW_SNAPSHOT_ISOLATION OFF
