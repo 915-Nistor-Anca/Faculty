@@ -1,2 +1,0 @@
-# Faculty
-Some projects.
