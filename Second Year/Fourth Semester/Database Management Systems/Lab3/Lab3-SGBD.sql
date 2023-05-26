@@ -144,8 +144,8 @@ end
 
 if (@ok<>1)
 begin 
-insert into Pet values (@petname, @weight)
-set @petid = scope_identity()
+insert into Owner values (@ownername, @phonenumber, @birthdate)
+set @ownerid = scope_identity()
 end
 
 if (dbo.validateWeight(@weight)<>1)
@@ -154,8 +154,8 @@ begin
 end
 else
 begin
-insert into Owner values (@ownername, @phonenumber, @birthdate)
-set @ownerid = scope_identity()
+insert into Pet values (@petname, @weight)
+set @petid = scope_identity()
 end
 
 if (@petid is not null and @ownerid is not null)
