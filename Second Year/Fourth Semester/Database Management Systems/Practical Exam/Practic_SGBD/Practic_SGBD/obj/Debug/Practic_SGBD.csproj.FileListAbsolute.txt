@@ -1,0 +1,11 @@
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\bin\Debug\Practic_SGBD.exe.config
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\bin\Debug\Practic_SGBD.exe
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\bin\Debug\Practic_SGBD.pdb
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\obj\Debug\Practic_SGBD.csproj.AssemblyReference.cache
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\obj\Debug\Practic_SGBD.csproj.SuggestedBindingRedirects.cache
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\obj\Debug\Practic_SGBD.Properties.Resources.resources
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\obj\Debug\Practic_SGBD.csproj.GenerateResource.cache
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\obj\Debug\Practic_SGBD.csproj.CoreCompileInputs.cache
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\obj\Debug\Practic_SGBD.exe
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\obj\Debug\Practic_SGBD.pdb
+D:\Fisiere facultate\SECOND YEAR\SGBD-Practic\Practic_SGBD\Practic_SGBD\obj\Debug\Practic_SGBD.Form1.resources
