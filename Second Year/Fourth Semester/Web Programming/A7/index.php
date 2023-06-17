@@ -54,7 +54,7 @@
     $(document).ready(function() {
       $('.filter-by-category').click(function() {
         var filter_by_category = $('#category-filter').find(':selected').text();
-        // alert(filter_by_category);
+        
         $('#news').load("category-filter.php", {
           selected_category: filter_by_category
         });
@@ -62,7 +62,7 @@
 
       $('.filter-by-date').click(function() {
         var filter_by_date = $('#date-filter').find(':selected').text();
-        // alert(filter_by_category);
+        
         $('#news').load("date-filter.php", {
           selected_date: filter_by_date
         });
