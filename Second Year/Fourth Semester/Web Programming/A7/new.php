@@ -18,6 +18,12 @@
     $date = date('Y/m/d H:i:s');
     $user_id = $_SESSION['user_id'];
 
+
+    if (!is_string($title)){return;}
+    if (!is_string($description)){return;}
+    if (!is_string($producer)){return;}
+    if (!is_string($category)){return;}
+
     $sql = "INSERT INTO News (content, title, producer, date, category, user_id) " . "VALUES ('$description', '$title', '$producer', '$date', '$category', '$user_id') ";
 
     if ($mysqli->query($sql) === true) {
