@@ -32,8 +32,9 @@
     $category = $mysqli->real_escape_string($_POST['category']);
 
     $id = $_SESSION['selected_news_id'];
+    $user_id = $_SESSION['user_id'];
 
-    $sql = "UPDATE News SET content = '$description', title = '$title', producer = '$producer', category = '$category' WHERE id = '$id'";
+    $sql = "UPDATE News SET content = '$description', title = '$title', producer = '$producer', category = '$category' WHERE id = '$id' and user_id = '$user_id'";
 
     if ($mysqli->query($sql) === true) {
       $_SESSION['selected_news_id'] = '';
