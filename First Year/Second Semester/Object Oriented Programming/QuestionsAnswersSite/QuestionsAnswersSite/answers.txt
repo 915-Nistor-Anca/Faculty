@@ -1,0 +1,6 @@
+1|2|anca|By being calm and gentle.|5
+2|3|anca|The water is not blue, it is an optical ilusion.|7
+3|1|larisa|We dont know for sure, but milions of years.|3
+4|4|larisa|Do semi nails.|30
+5|4|gabriel|Don't paint them.|2
+6|2|florin|You need to know the horse.|3

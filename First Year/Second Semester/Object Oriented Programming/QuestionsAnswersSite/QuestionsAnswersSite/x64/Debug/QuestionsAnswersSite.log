@@ -1,0 +1,9 @@
+﻿  QuestionsAnswersSite.cpp
+  UserWindow.cpp
+  answer.cpp
+  main.cpp
+  repository.cpp
+  service.cpp
+  moc_QuestionsAnswersSite.cpp
+  moc_UserWindow.cpp
+  QuestionsAnswersSite.vcxproj -> D:\Fisiere facultate\OOP\Modele\QuestionsAnswersSite\x64\Debug\QuestionsAnswersSite.exe
