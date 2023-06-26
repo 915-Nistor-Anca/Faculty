@@ -1,0 +1,6 @@
+descr1|proposed|anca|2
+descr2|accepted|anca|3
+descr22|accepted|anca|1
+descr3|accepted|ema|3
+descr4|proposed|anca|1
+descr5|proposed|diana|1
