@@ -84,7 +84,7 @@ def BelasoCipherDecription(alphabet, keyword, ciphertext):
 if __name__ == '__main__':
     alphabet = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     keyword = input("Which is the keyword?")
-    answer = int(input("Do you want to encode (1) or decode (2)?"))
+    answer = int(input("Do you want to encrypt (1) or decrypt (2)?"))
     if (answer == 1):
         plaintext = input("Which is the plaintext?")
         BelasoCipherEncription(alphabet, keyword, plaintext)
