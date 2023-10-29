@@ -1,0 +1,33 @@
+Mobile Apps – Project Idea
+
+Short description: 
+
+This app is made for people who have a strong love for animated movies and want to be part of each enchanting story. With this app, the user can record every animated movie they’ve watched; it’s like a blog, but for those who choose to feel like a child again. After each viewing, they can post their thoughts by adding a review to their personal movie list.  It allows the user to immerse themselves in the magic of animation!
+
+Domain details:
+
+The main entity is the animated movie.
+AnimatedMovie: name, studio, description, year, image, review
+- name: the full name of the animated movie
+- studio: the animation studio which made the movie
+- description: a brief description of the movie
+- year: release year of the movie
+- image: representative image of the movie
+- review: user’s opinion about the movie, likes and dislikes
+
+CRUD:
+- Create: if the user wants to add a new movie they’ve just watched to the list, they will press a button called ”Add”, which redirects them to a new, separate page. There, they will be able to write all the movie’s information, each one in its own space.
+- Read: the user will have the possibility to see all their reviews in one place, like a list.
+- Update: it is possible that someone watches a movie twice and their opinion about it changes, so they should be able to update the review. The ”Update” button is present for each movie in the list; when clicked, it opens a new page where the information of the movie is already autofilled, so it is easy to modify anything.
+- Delete: everybody makes mistakes; happily, they can be deleted with this app. Whenever the ”Delete” button is pressed, the app asks for confirmation.
+
+Persistence details:
+The app will be connected to both a local database and a server. This would make the app available both online and offline. When a user adds, deletes or updates a movie, the changes would be persisted on both the server and the local database. When the user is online, the information is taken from the server. Otherwise, it’s taken from the local database. 
+
+When offline: 
+When the app is offline, all the performed operations happen on the local database. When the app goes online, the changes are sent to the server. 
+- Create: the new entity is stored in the local database
+- Read: the user can only read entities which are saved in the local database
+- Update: the user can only update entities which are saved locally
+- Delete: the delete operation is performed locally
+
