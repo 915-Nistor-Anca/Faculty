@@ -1,0 +1,6 @@
+flour 2 400000
+water 5 250000
+sugar 8 950000
+candy 1 300000
+juice 10 12000
+choco 3 50000
